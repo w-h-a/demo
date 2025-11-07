@@ -1,9 +1,30 @@
 import express, { Express, Router } from 'express';
-import { initDb, pool } from './config/config';
+import { pool } from './config/config';
 import { PostgresUserRepository } from './client/userRepo/postgres/userRepo';
 import { InMemoryNotificationClient } from './client/notification/memory/notification';
 import { UserService } from './service/user/service';
 import { UserHandler } from './api/user/handler';
+
+/**
+ * A simple function to initialize the database schema.
+ * This creates the 'users' table if it doesn't already exist.
+ */
+const initDb = async () => {
+  try {
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS users (
+        id UUID PRIMARY KEY,
+        name VARCHAR(100) NOT NULL,
+        email VARCHAR(100) UNIQUE NOT NULL
+      );
+    `);
+    console.log('Database schema initialized successfully.');
+  } catch (err) {
+    console.error('Error initializing database schema:', err);
+    // Exit the process if we can't connect/init the DB
+    process.exit(1);
+  }
+};
 
 /**
  * Creates the router

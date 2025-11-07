@@ -2,9 +2,10 @@
 
 ## Architecture
 
-* src/api (inbound): Express handlers responsible for parsing HTTP requests, calling the service, and sending HTTP responses. No business logic
+* src/handler (inbound): Handlers responsible for parsing requests, calling the service, and sending responses. No business logic.
+* src/api (domain types): Contains all the shared domain types.
 * src/service (business logic): Contains all the business logic. Any required outbound calls go through the client layer.
-* src/client (outbound): Contains the interfaces (e.g., `IUserRepository`) and their concrete implementations (e.g., `PostgresUserRepository`) for all outbound communication (whether that's database or other APIs).
+* src/client (outbound): Contains the interfaces (e.g., `IUserRepository`) and their concrete implementations (e.g., `PostgresUserRepository`) for all outbound communication (whether that's database or other external dependencies).
 
 ## Testing
 
@@ -14,8 +15,8 @@
     * Method: Mock all outbound dependencies
 2. Integration Tests (`npm run test:integration`)
     * Target: Inbound Layer
-    * Goal: Test the full slice from HTTP request to the database and back.
-    * Method: Use `supertest` to send real HTTP requests to the running app, which connects to a real Postgres database (running in Docker)
+    * Goal: Test the full slice from request to the database and back.
+    * Method: Use `supertest` to send real requests to the running app, which connects to a real Postgres database (running in Docker)
 
 ## How to Run
 

@@ -1,6 +1,6 @@
 import { INotificationClient } from '../../client/notification/notification';
 import { IUserRepository } from '../../client/userRepo/userRepo';
-import { CreateUserDTO, User } from '../../shared/types';
+import { CreateUserDTO, User } from '../../api/user/domain';
 
 /**
  * This is the service layer for users. It contains

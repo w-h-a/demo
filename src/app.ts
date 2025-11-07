@@ -3,7 +3,7 @@ import { pool } from './config/config';
 import { PostgresUserRepository } from './client/userRepo/postgres/userRepo';
 import { InMemoryNotificationClient } from './client/notification/memory/notification';
 import { UserService } from './service/user/service';
-import { UserHandler } from './api/user/handler';
+import { UserHandler } from './handler/user/handler';
 
 /**
  * A simple function to initialize the database schema.

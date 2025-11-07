@@ -1,7 +1,7 @@
 import { UserService } from './service';
 import { MockUserRepository } from '../../client/userRepo/mock/userRepo';
 import { MockNotificationClient } from '../../client/notification/mock/notification';
-import { CreateUserDTO, User } from '../../shared/types';
+import { CreateUserDTO, User } from '../../api/user/domain';
 
 /**
  * We test the service business logic in isolation

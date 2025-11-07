@@ -1,4 +1,4 @@
-import { CreateUserDTO, User } from '../../shared/types';
+import { CreateUserDTO, User } from '../../api/user/domain';
 
 /**
  * Interface for the User Repo.

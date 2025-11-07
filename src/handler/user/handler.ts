@@ -1,6 +1,6 @@
 import { UserService } from '../../service/user/service';
 import { Request, Response } from 'express';
-import { CreateUserDTO } from '../../shared/types';
+import { CreateUserDTO } from '../../api/user/domain';
 
 /**
  * This is the handler/controller layer for users.

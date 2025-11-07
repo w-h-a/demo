@@ -1,6 +1,6 @@
 import { Pool } from 'pg';
 import { IUserRepository } from '../userRepo';
-import { CreateUserDTO, User } from '../../../shared/types';
+import { CreateUserDTO, User } from '../../../api/user/domain';
 import { randomUUID } from 'crypto';
 
 /**
